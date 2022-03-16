@@ -14,7 +14,11 @@
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
+    "jose": "^4.6.0",
     "morgan": "~1.9.1",
     "pg-promise": "^10.11.1"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^6.0.0"
   }
 }

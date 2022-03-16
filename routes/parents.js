@@ -6,4 +6,9 @@ router.get('/',async function(req,res){
     res.send(parents)
 })
 
+router.get('/:id',async function(req,res){
+    var parent = await db.query("SELECT * FROM parents WHERE id = $1",req.params.id)
+    res.json(parent)
+})
+
 module.exports = router
