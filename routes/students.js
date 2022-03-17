@@ -21,11 +21,12 @@ router.post("/add",async function(req,res){
 })
 
 router.post("/login",async function(req,res){
+    console.log("login")
     const student = await db.query("SELECT * FROM students WHERE email = $1",req.body.email)
     if (student.length === 0){
         res.json({msg:"user does not exist"})
     }
-    else if (!bcrypt.compareSync(req.body.pwd,student[0].pwd_hash)){
+    else if (!bcrypt.compareSync(req.body.password,student[0].pwd_hash)){
         res.json({msg:"password incorrect"})
     }
     else {

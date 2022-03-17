@@ -25,7 +25,7 @@ router.post("/login",async function(req,res){
     if (parent.length === 0){
         res.json({msg:"user does not exist"})
     }
-    else if (!bcrypt.compareSync(req.body.pwd,parent[0].pwd_hash)){
+    else if (!bcrypt.compareSync(req.body.password,parent[0].pwd_hash)){
         res.json({msg:"password incorrect"})
     }
     else {
