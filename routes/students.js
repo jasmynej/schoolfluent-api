@@ -35,4 +35,15 @@ router.post("/login",async function(req,res){
   
 })
 
+router.post("/:id/register",async function(req,res){
+    const classTaken = await db.query("INSERT INTO class_taken (student_id,class_id,yr_section) VALUES ($1,$2,$3) RETURNING class_id",
+    [req.params.id,req.body.class,req.body.yr_section])
+
+    res.json(classTaken)
+})
+
+router.get("/:id/classes",async function(req,res){
+    const classes = await db.query("SELECT * FROM class_taken WHERE student_id = $1",req.params.id)
+    res.json(classes)
+})
 module.exports = router
