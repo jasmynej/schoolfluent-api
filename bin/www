@@ -87,5 +87,5 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
-  console.log(process.env.DEV_DATABASE)
+  console.log(process.env.DATABASE_URL)
 }
